@@ -14,6 +14,11 @@
 </p>
 
 <p align="center">
+  <a href="https://minicore-ventas-dfzh.onrender.com/"><strong>Ver la aplicación en línea</strong></a> ·
+  <a href="https://www.youtube.com/watch?v=ULsMGeRpXcw"><strong>Ver el video explicativo</strong></a>
+</p>
+
+<p align="center">
   <img src="docs/captura.png" alt="Pantalla de MiniCore Ventas: un formulario para elegir fecha de inicio y fin, una tabla con el total vendido, el porcentaje y la comisión en rojo de cada vendedor, y la lista de reglas de comisión" width="800">
 </p>
 
@@ -63,8 +68,9 @@ El sistema guarda vendedores, ventas y reglas de comisión. El usuario elige un 
 
 ## Demostración
 
-- :globe_with_meridians: **Aplicación en línea:** https://TU-APP.onrender.com
-- :movie_camera: **Video explicativo:** https://youtu.be/TU-VIDEO
+- :globe_with_meridians: **Aplicación en línea:** [minicore-ventas-dfzh.onrender.com](https://minicore-ventas-dfzh.onrender.com/)
+- :movie_camera: **Video explicativo:** [ver en YouTube](https://www.youtube.com/watch?v=ULsMGeRpXcw)
+- :octocat: **Repositorio:** [github.com/16adrian/minicore-ventas](https://github.com/16adrian/minicore-ventas)
 
 Ejemplo con el rango **01/06/2025 – 30/06/2025**:
 
@@ -88,7 +94,7 @@ Puedes ver la aplicación en línea en el enlace de la sección [Demostración](
 O, si tienes Git instalado:
 
 ```bash
-git clone https://github.com/TU-USUARIO/minicore-ventas.git
+git clone https://github.com/16adrian/minicore-ventas.git
 cd minicore-ventas
 ```
 
@@ -164,7 +170,7 @@ minicore-ventas/
 
 ## Personas desarrolladoras
 
-| [<img src="https://github.com/TU-USUARIO.png" width="100" alt="Foto de perfil de TU NOMBRE"><br><sub>TU NOMBRE</sub>](https://github.com/TU-USUARIO) |
+| [<img src="https://github.com/16adrian.png" width="100" alt="Foto de perfil de Adrián"><br><sub>Adrián</sub>](https://github.com/16adrian) |
 | :---: |
 
 Proyecto basado en la idea de [MiniCore_Ventas](https://github.com/JimmyAlbarrac1n/MiniCore_Ventas) de Jimmy Albarracín.
