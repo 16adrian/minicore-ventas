@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Comisiones de Vendedores{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <h2>Filtrar por fechas</h2>
+    <form method="post" id="filtro-form" class="filtro">
+        <label>Fecha de inicio
+            <input type="date" name="fecha_inicio" id="fecha_inicio" value="{{ fecha_inicio }}" required>
+        </label>
+        <label>Fecha de fin
+            <input type="date" name="fecha_fin" id="fecha_fin" value="{{ fecha_fin }}" required>
+        </label>
+        <button type="submit">Buscar</button>
+        <a class="boton-secundario" href="/">Ver todo</a>
+    </form>
+    <p id="mensaje-error" class="error">{{ error or '' }}</p>
+    <p class="nota">
+        {% if filtrado %}Mostrando ventas del {{ fecha_inicio }} al {{ fecha_fin }}.
+        {% else %}Mostrando todas las ventas.{% endif %}
+    </p>
+</section>
+
+<section class="tarjeta">
+    <h2>Comisiones por vendedor</h2>
+    <div class="tabla-scroll">
+        <table>
+            <thead>
+                <tr>
+                    <th>Vendedor</th>
+                    <th class="solo-pc">N.&ordm; ventas</th>
+                    <th>Total ventas</th>
+                    <th>% Comision</th>
+                    <th>Comision</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in comisiones %}
+                <tr>
+                    <td>{{ c.vendedor }}</td>
+                    <td class="solo-pc">{{ c.num_ventas }}</td>
+                    <td>${{ "%.2f"|format(c.total_ventas) }}</td>
+                    <td>{{ "%.0f"|format(c.porcentaje * 100) }}%</td>
+                    <td class="comision">${{ "%.2f"|format(c.comision) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>TOTAL</td>
+                    <td class="solo-pc"></td>
+                    <td>${{ "%.2f"|format(total_ventas) }}</td>
+                    <td></td>
+                    <td class="comision">${{ "%.2f"|format(total_comisiones) }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+
+<section class="tarjeta">
+    <h2>Reglas de comision</h2>
+    <ul class="reglas">
+        {% for r in reglas %}
+        <li>Si vende <strong>${{ "%.0f"|format(r.monto_minimo) }}</strong> o mas, gana
+            <strong>{{ "%.0f"|format(r.porcentaje_comision * 100) }}%</strong></li>
+        {% endfor %}
+        <li>Si vende menos de ${{ "%.0f"|format(reglas[-1].monto_minimo) }}, gana 0%</li>
+    </ul>
+</section>
+
+<script>
+    // JavaScript: revisa las fechas ANTES de enviar el formulario
+    document.getElementById("filtro-form").addEventListener("submit", function (evento) {
+        var inicio = document.getElementById("fecha_inicio").value;
+        var fin = document.getElementById("fecha_fin").value;
+        if (inicio && fin && fin < inicio) {
+            evento.preventDefault();
+            document.getElementById("mensaje-error").textContent =
+                "La fecha de fin no puede ser menor que la fecha de inicio.";
+        }
+    });
+</script>
+{% endblock %}

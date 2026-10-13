@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MiniCore Ventas{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="cabecera">
+        <h1>MiniCore Ventas</h1>
+        <p>Calculo de comisiones de vendedores &middot; Flask MVC</p>
+    </header>
+    <main class="contenedor">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="pie">Hecho con Python, Flask, SQLAlchemy, HTML, CSS y JavaScript</footer>
+</body>
+</html>
